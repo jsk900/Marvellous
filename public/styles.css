@@ -1,0 +1,439 @@
+@import url(https://fonts.googleapis.com/css?family=Bitter rel="stylesheet");
+
+* { margin: 0;
+    padding: 0;
+    font-family: Bitter;
+}
+
+body {
+    background-image: url(./black-linen.png);
+    background-color: #6c0915;
+    color: #ffff99;
+}
+
+/* Welcome Page ...................................................................................... */
+.welcomeContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url(./marvel.gif);
+    background-repeat: none;
+    background-position: center;
+    background-size: cover;
+}
+
+.welcomeHeader {
+    position: relative;
+    width: 100%;
+    height: 54px;
+    border-bottom: 1px solid #ffff99;
+}
+
+.welcomeHeader h3 {
+    background: -webkit-linear-gradient(#da2137, #ffff99);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: 200px;
+    padding: 14px 0 0 16px;
+}
+
+.main {
+    position: relative;
+    flex-grow: 1;
+}
+
+/* Registration form ......................................... */
+.registerForm {
+    position: relative;
+    margin: 75px 0 0 50px;
+    width: 200px;
+    height: 400px;
+    border: 1px solid #ffff99;
+    font-size: 12px;
+    background-color: none;
+    border-radius: 4px;
+}
+
+.registerForm p {
+    color:  #ffff99;
+    text-align: center;
+    padding-top: 5px;
+    border-radius: 4px;
+}
+
+.registerForm input {
+    text-align: center;
+    padding: 2px;
+    margin: 7px;
+    border: 1px solid #99fdfd;
+    width: 180px;
+    height: 60px;
+    color:  #09085b;
+    background-color: #ffff99 !important;
+    background-clip: content-box !important;
+}
+
+.registerForm input:hover {
+    color: #ffff99;
+    background-color: #09085b !important;
+}
+
+.registerForm button {
+    text-align: center;
+    padding: 2px;
+    margin: 20px 7px 0 7px;
+    border: 1px solid #99fdfd;
+    width: 184px;
+    height: 60px;
+    color:  #ffff99;
+    background-color: #09085b !important;
+    background-clip: content-box !important;
+}
+
+.registerForm button:hover {
+    color: #09085b;
+    background-color:  #ffff99 !important;
+}
+
+.registerForm .link {
+    text-decoration: none;
+    margin: 10px 0 0 80px;
+    color:  #99fdfd;
+
+}
+
+.registerForm .error {
+    font-size: 12px;
+    color: #da2137;
+    text-align: center;
+}
+
+/* Registration form end ..................................... */
+
+/* Login form ................................................ */
+.loginForm {
+    margin: 75px 0 0 50px;
+    width: 200px;
+    height: 320px;
+    border: 1px solid #ffff99;
+    font-size: 12px;
+    background-color: none;
+    border-radius: 4px;
+}
+
+.loginForm p {
+    color:  #ffff99;
+    text-align: center;
+    padding-top: 5px;
+    border-radius: 4px;
+}
+
+.loginForm input {
+    text-align: center;
+    padding: 2px;
+    margin: 7px;
+    border: 1px solid #99fdfd;
+    width: 180px;
+    height: 60px;
+    color:  #09085b;
+    background-color: #ffff99 !important;
+    background-clip: content-box !important;
+}
+.loginForm input:hover {
+    color: #ffff99;
+    background-color: #09085b !important;
+}
+
+.loginForm button {
+    text-align: center;
+    padding: 2px;
+    margin: 15px 7px 0 7px;
+    border: 1px solid #99fdfd;
+    width: 184px;
+    height: 60px;
+    color:  #ffff99;
+    background-color: #09085b !important;
+    background-clip: content-box !important;
+}
+
+.loginForm button:hover {
+    color: #09085b;
+    background-color:  #ffff99 !important;
+}
+
+.loginForm .link {
+    text-decoration: none;
+    margin: 10px 0 0 80px;
+    color:  #99fdfd;
+
+}
+
+.loginForm .error {
+    font-size: 12px;
+    color: #da2137;
+    text-align: center;
+}
+/* Login form end ............................................ */
+
+/* Welcome page end .................................................................................. */
+
+/* Main page ......................................................................................... */
+.mainContainer {
+    min-height: 100vh;
+    flex-grow: 1;
+}
+
+/* Main header ......................................................................................... */
+.mainHeader {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 54px;
+    border-bottom: 1px solid #ffff99;
+}
+
+.mainHeader h3 {
+    background: -webkit-linear-gradient(#da2137, #ffff99);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: 200px;
+    padding: 14px 0 0 16px;
+}
+
+.mainSearch {
+    width: 300px;
+    position: relative;
+    top: 15px;
+    left: 41.5%;
+}
+
+.mainSearch #searchInput {
+    width: 160px;
+    height: 20px;
+    text-align: center;
+    font-size: 12px;
+    background-color: #09085b;
+    color: #ffff99;
+    border: 1px solid #ffff99;
+}
+
+.mainSearch #searchButton {
+    width: 45px;
+    height: 22px;
+    text-align: center;
+    margin: 4px;
+    font-size: 12px;
+    background-color: #09085b;
+    color: #ffff99;
+    border: 1px solid #ffff99;
+}
+
+.mainSearch #searchButton:hover {
+    background-color:  #ffff99;
+    color: #09085b;
+    border: 1px solid #09085b;
+}
+
+#counts {
+    position: absolute;
+    margin: -3px 0 0 550px;
+}
+
+#counts #name span {
+    font-size: 14px;
+    background: -webkit-linear-gradient(#da2137, #ffff99);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.mainHeader #counts p {
+    position: relative;
+    display: inline;
+    padding: 30px 0 0 10px;
+    color:   #99fdfd;
+    font-size: 12px;
+}
+
+.mainHeader #counts span {
+    color: #da2137;
+    font-weight:bolder;
+}
+
+.mainHeader ul {
+    position: relative;
+    margin: -4px 0 0 40px;
+    font-size: 12px;
+    color:  #ffff99;
+    float: right;
+}
+
+.mainHeader li {
+    padding-left: 6px;
+    text-decoration: none;
+    display: inline-block;
+    list-style-type: none;
+    font-size: 12px;
+    color:  #ffff99;
+}
+
+.mainHeader .mainLink {
+    margin-top: 5px;
+    text-decoration: none;
+    display: inline-block;
+    list-style-type: none;
+    font-size: 12px;
+    color:  #ffff99;
+}
+
+.mainHeader .mainLink a {
+    padding-right: 10px;
+    text-decoration: none;
+    list-style-type: none;
+    font-size: 10px;
+    color:   #99fdfd;
+}
+
+.mainLink:hover {
+    color: #ecea0b;
+}
+
+/* Main header end ................................................................................... */
+
+/* Main characters list page ................................ */
+.characterListContainer {
+    margin-top: 20px;
+    height: calc(100vh - 180px);
+    overflow: auto;
+}
+
+.characterListContainer ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    justify-content:space-around;
+}
+
+.characterListContainer li {
+    list-style-type: none;
+}
+
+.characterContainer {
+    position: relative;
+    height: 140px;
+    width: 160px;
+    text-align: center;
+    vertical-align: center;
+    border: 1px solid  #ffff99;
+    margin: 10px;
+    border-radius: 4px;
+}
+
+#characterImage {
+    padding-top: 10px;
+    text-align: center;
+}
+
+#characterImage:hover {
+    cursor: pointer;
+     -webkit-filter: brightness(160%);
+}
+
+#characterName {
+    padding-top: 2px;
+    font-size: 10px;
+    color: #99fdfd;
+    text-align: center;
+    background-color: #09085b;
+    border-radius: 4px;
+}
+
+.heartContainer #heaartParagraph {
+    font-size: 8px;
+    color: #99fdfd;
+    padding: 5px 39px 0 0 ;
+    float: right;
+}
+
+#heart:hover {
+    cursor: pointer;
+    background: url("./heart.png");
+}
+
+.bioContainer {
+    display: flex;
+    flex-direction: row;
+    min-height: 1000vh;
+}
+
+.bioContainer1 {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.bioContainer1 #bioImage {
+    margin: 5px 0 0 20px;
+    width: 300px;
+    height: 450px;
+    vertical-align: center;
+    border: 1px solid  #ffff99;
+    border-radius: 4px;
+}
+
+.bioContainer1 p {
+    margin-left: 20px;
+    text-align: center;
+    font-size: 16px;
+    color:  #ffff99;
+}
+
+.bioContainer2 {
+    display: flex;
+    flex-direction: column;
+    margin: 25px 0 0 15px;
+    height: 450px;
+    width: 500px;
+    border: 1px solid  #ffff99;
+    border-radius: 4px;
+}
+
+.bioContainer2 p {
+    padding: 5px;
+    margin: 10px;
+    letter-spacing: 1px;
+    text-align: left;
+    font-size: 16px;
+    color:  #ffff99;
+}
+
+.bioContainer2 p span {
+    color:  #99fdfd;
+}
+
+.bioContainer2 .comicsLink {
+    text-decoration: none;
+    color:  #ffff99;
+}
+
+.comicsLink:hover {
+    color: #ecea0b;
+}
+
+/* Main page end ..................................................................................... */
+
+/* Footer commom to the app .................................. */
+.footer {
+    position: relative;
+    border-top: 1px solid #ffff99;
+    width: 100%;
+    height: 54px;
+}
+
+footer p {
+    font-size: 12px;
+    padding: 7px 0 0 8px;
+    color: #ffff99;
+}
+
+/* Footer end ................................................ */
