@@ -37,8 +37,7 @@ if (process.env.NODE_ENV != "production") {
 // Use all in public folder  and listen on port 8080
 app.use(express.static("./public"));
 app.use("/public", express.static(__dirname + "/public"));
-
-app.listen(8080, function() { console.log("I'm listening on Port 8080.")});
+app.listen(process.env.PORT || 8080, () => {console.log("Listening on port 8080")});
 
 // Register new user and setup session var. Inform success or not in response.json.................
 app.post("/register", (request, response) => {
