@@ -60,7 +60,7 @@ export default class App extends Component {
 
     characterList() {
         var charSearch = this.state.charSearch;
-        var url       = `http://gateway.marvel.com/v1/public/characters?nameStartsWith=${charSearch}&limit=50&ts=1&apikey=24b734a9df515f87bbe1bac66f8dbd5c&hash=a4374486b969b3e7b91f44c63fe5a64d`
+        var url       = `https://gateway.marvel.com/v1/public/characters?nameStartsWith=${charSearch}&limit=50&ts=1&apikey=24b734a9df515f87bbe1bac66f8dbd5c&hash=a4374486b969b3e7b91f44c63fe5a64d`
         return $.ajax({
             url: url,
             method: 'GET',
@@ -97,7 +97,7 @@ export default class App extends Component {
 
     getComics(value) {
         var characterId = value.id;
-        var url         = `http://gateway.marvel.com/v1/public/characters/${characterId}/comics?ts=1&apikey=24b734a9df515f87bbe1bac66f8dbd5c&hash=a4374486b969b3e7b91f44c63fe5a64d`
+        var url         = `https://gateway.marvel.com/v1/public/characters/${characterId}/comics?ts=1&apikey=24b734a9df515f87bbe1bac66f8dbd5c&hash=a4374486b969b3e7b91f44c63fe5a64d`
         return $.ajax({
             url: url,
             method: 'GET',
