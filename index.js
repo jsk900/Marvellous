@@ -8,7 +8,6 @@ const https          = require("https");
 const md5            = require("md5");
 const database       = require("./src/database.js");
 const encrypt        = require("./src/encrypt.js");
-const uidSafe        = require("uid-safe");
 const path           = require("path");
 const csurf          = require("csurf");
 

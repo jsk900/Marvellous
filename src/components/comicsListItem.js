@@ -7,7 +7,7 @@ const ComicsListItem = ({comic, selectComic}) => {
     let extension     = comic.thumbnail.extension;
     let comicPic      = image + "/landscape_small" + "." + extension;
     let comicId       = comic.id;
-    let comicName     = comic.name;
+    let comicName     = comic.title;
 console.log(selectComic);
     return (
         <Link to = "/comicBio">
