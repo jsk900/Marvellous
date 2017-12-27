@@ -4,6 +4,7 @@ import axios                from "../axios";
 import {HashPassword}       from "../encrypt.js";
 import { Link }             from "react-router";
 
+// Login form Component. Used on welcome master Component
 export default class Login extends Component {
     constructor(props) {
         super(props);

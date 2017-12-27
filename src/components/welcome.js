@@ -1,4 +1,4 @@
-//Setups
+// Setup
 import React, { Component} from "react";
 import WelcomeHeader       from "./welcomeHeader";
 import Footer              from "./footer";
@@ -10,6 +10,7 @@ export default class Welcome extends Component {
         super(props);
     }
 
+    // Here we render, return the header the children and the footer to the welcome page.
     render() {
         return(
             <div className="welcomeContainer">

@@ -2,6 +2,10 @@
 import React, {Component} from "react";
 import ComicsList         from "./comicsList";
 
+
+// This is the comics version of out Main component. All sorted out from
+// start.js handling our routes. I guess this is where we would also handle videos
+// and favourites
 export default class ComicsMain extends Component {
     constructor(props){
         super(props);

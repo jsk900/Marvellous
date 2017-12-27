@@ -1,3 +1,4 @@
+// Setup
 import React, { Component } from "react";
 import Title                from "./title";
 import CharacterSearch      from "./characterSearch";
@@ -8,6 +9,8 @@ export default class MainHeader extends Component {
         this.state = {}
     }
 
+    // Header for our App master Component. Pass the data onto our Title Component.
+    // Here we also only show the searchBar if we need to
     render() {
         return (
             <div>

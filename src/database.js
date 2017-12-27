@@ -30,7 +30,7 @@ exports.readUsersByEmail = function(email) {
     });
 }
 
-// Get record with email. Bring back the id and password
+// Get record with userid and send back the name
 exports.getName = function(userid) {
     return database.query(`SELECT name FROM users WHERE id = $1`,[userid])
         .then((results) => {

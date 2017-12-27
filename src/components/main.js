@@ -8,6 +8,7 @@ export default class Main extends Component {
         this.state = {}
     }
 
+    // Main Component to show characters list
     render() {
         if (!this.props.characters) {
             return (

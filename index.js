@@ -5,7 +5,6 @@ const compression    = require("compression");
 const bodyParser     = require("body-parser");
 const cookieSession  = require("cookie-session");
 const https          = require("https");
-const md5            = require("md5");
 const database       = require("./src/database.js");
 const encrypt        = require("./src/encrypt.js");
 const path           = require("path");
@@ -33,7 +32,7 @@ if (process.env.NODE_ENV != "production") {
 }
 //.................................................................................................
 
-// Use all in public folder  and listen on port 8080
+// Use all in public folder  and listen on port 8080 or heroku
 app.use(express.static("./public"));
 app.use("/public", express.static(__dirname + "/public"));
 app.listen(process.env.PORT || 8080, () => {console.log("Listening on port 8080")});
@@ -78,6 +77,7 @@ app.get("/logout", (request, response) => {
     response.redirect("/")
 })
 
+// Send name to browser script
 app.post("/getName", (request, response) => {
     database.getName(request.session.user.userid).then((results) => {
         response.json({'success': true, name: results.name});

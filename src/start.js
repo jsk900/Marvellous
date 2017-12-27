@@ -13,6 +13,7 @@ import { Router, Route, IndexRoute, hashHistory, browserHistory, Redirect}  from
 
 let router;
 
+// Not logged in yet. Show welcome page and register component
 const notLoggedInRouter = (
     <Router history={hashHistory}>
         <Route path="/" component={Welcome}>
@@ -22,6 +23,7 @@ const notLoggedInRouter = (
     </Router>
 );
 
+// Logged in so show main app and character list page
 const loggedInRouter = (
     <Router history={browserHistory}>
         <Route path="/" component={App}>
@@ -36,6 +38,8 @@ const loggedInRouter = (
 
 );
 
+// The server checks whether there is a session of not. If not it redirects to the welcome path.
+// Here we check what path we're on and determines what app and component to show
 if (location.pathname == "/welcome") {
     router = notLoggedInRouter
 } else {

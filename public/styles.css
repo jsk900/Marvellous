@@ -1,17 +1,22 @@
+/* Import fonts ...................................................................................... */
 @import url(https://fonts.googleapis.com/css?family=Bitter rel="stylesheet");
 
+/* Universal defaults ................................................................................ */
 * { margin: 0;
     padding: 0;
     font-family: Bitter;
 }
+/* ................................................................................................... */
 
+/* body defaults ..................................................................................... */
 body {
     background-image: url(./black-linen.png);
     background-color: #6c0915;
     color: #ffff99;
 }
+/* ................................................................................................... */
 
-/* Welcome Page ...................................................................................... */
+/* Welcome Page flex by column ....................................................................... */
 .welcomeContainer {
     display: flex;
     flex-direction: column;
@@ -22,6 +27,7 @@ body {
     background-size: cover;
 }
 
+/* welcome header .................................. */
 .welcomeHeader {
     position: relative;
     width: 100%;
@@ -37,12 +43,15 @@ body {
     padding: 14px 0 0 16px;
 }
 
+/* ................................................. */
+
+/* Main section where all our jsx will go .......... */
 .main {
     position: relative;
     flex-grow: 1;
 }
 
-/* Registration form ......................................... */
+/* Registration form on welcome page app ........... */
 .registerForm {
     position: relative;
     margin: 75px 0 0 50px;
@@ -108,9 +117,9 @@ body {
     text-align: center;
 }
 
-/* Registration form end ..................................... */
+/* Registration form end ........................... */
 
-/* Login form ................................................ */
+/* Login form on welcome page app .................. */
 .loginForm {
     margin: 75px 0 0 50px;
     width: 200px;
@@ -173,17 +182,17 @@ body {
     color: #da2137;
     text-align: center;
 }
-/* Login form end ............................................ */
+/* Login form end .................................. */
 
 /* Welcome page end .................................................................................. */
 
-/* Main page ......................................................................................... */
+/* Main page App ..................................................................................... */
 .mainContainer {
     min-height: 100vh;
     flex-grow: 1;
 }
 
-/* Main header ......................................................................................... */
+/* Main header ..................................... */
 .mainHeader {
     position: relative;
     display: inline-block;
@@ -297,9 +306,9 @@ body {
     color: #ecea0b;
 }
 
-/* Main header end ................................................................................... */
+/* Main header end ................................. */
 
-/* Main characters list page ................................ */
+/* Main characters list page also doubles as comics page css ................ */
 .characterListContainer {
     margin-top: 20px;
     height: calc(100vh - 180px);
@@ -347,19 +356,9 @@ body {
     background-color: #09085b;
     border-radius: 4px;
 }
+/* End characters list ............................. */
 
-.heartContainer #heaartParagraph {
-    font-size: 8px;
-    color: #99fdfd;
-    padding: 5px 39px 0 0 ;
-    float: right;
-}
-
-#heart:hover {
-    cursor: pointer;
-    background: url("./heart.png");
-}
-
+/* Bio page ........................................ */
 .bioContainer {
     display: flex;
     flex-direction: row;
@@ -415,14 +414,17 @@ body {
     text-decoration: none;
     color:  #ffff99;
 }
+/* End bio page app ................................ */
 
+/* Comics Link on Bio page App ..................... */
 .comicsLink:hover {
     color: #ecea0b;
 }
+/* ................................................. */
 
 /* Main page end ..................................................................................... */
 
-/* Footer commom to the app .................................. */
+/* Footer common to the whole app .................. */
 .footer {
     position: relative;
     border-top: 1px solid #ffff99;
@@ -436,4 +438,4 @@ footer p {
     color: #ffff99;
 }
 
-/* Footer end ................................................ */
+/* Footer end ...................................... */

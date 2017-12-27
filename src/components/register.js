@@ -5,7 +5,7 @@ import {HashPassword}       from "../encrypt.js";
 import { Link }             from "react-router";
 
 
-// This where we construct our register component. Using the class constructer.
+// Our register form component. Used on our Welcome Master app
 export default class Register extends Component {
     constructor(props) {
         super(props);
@@ -17,6 +17,7 @@ export default class Register extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    // Focus on first field before the render
     componentDidMount(){
         this.firstInput.focus()
     }
@@ -39,10 +40,8 @@ export default class Register extends Component {
     }
 
     // Ok submit button clicked on our register form. Check for input and valid email.
-    // TOBEDONE......check if the user already exists.
-    // Also the error message and error flag get put into state.
     // If all is ok hash the password and send all entered data as an Axios request to the server-
-    // indx.js. This will action a query on the db to insert the data. We get a response back as
+    // index.js. This will action a query on the db to insert the data. We get a response back as
     // success or not.
     handleSubmit(e) {
         e.preventDefault();
