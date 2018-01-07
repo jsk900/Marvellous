@@ -21,7 +21,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-image: url(./marvel.gif);
+    /* background-image: url(./marvel.gif); */
+    background-image: url(./marvel_characters.png);
     background-repeat: none;
     background-position: center;
     background-size: cover;
