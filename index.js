@@ -87,6 +87,27 @@ app.post("/getName", (request, response) => {
     });
 });
 
+// Send member Count to browser script
+app.post("/getMemberCount", (request, response) => {
+    database.getMemberCount().then((results) => {
+        response.json({'success': true, memberCount: results.length});
+        }).catch((err) => {
+        console.log(err);
+        response.json({'success': false});
+    });
+});
+
+// Send name to browser script
+app.post("/checkEmail", (request, response) => {
+    database.readUsersByEmail(request.body.email).then((results) => {
+        if (results) {
+            response.json({'success': true});
+        } else {
+            response.json({'success': false});
+        }
+    });
+});
+
 // Catch all with checks to see if there is a user session and redirects accordingly...............
 app.get('*', (request, response) => {
     if (!request.session.user && request.url != "/welcome") {

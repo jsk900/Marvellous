@@ -11,6 +11,7 @@ export default class Login extends Component {
         this.state = {name: null}
         this.clearInput=this.clearInput.bind(this)
         this.handleChange = this.handleChange.bind(this);
+        this.activateButton = this.activateButton.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -31,6 +32,13 @@ export default class Login extends Component {
             [e.target.name]: e.target.value
         });
     }
+
+    activateButton(event) {
+       if(event.which == 13) {
+           this.button.click();
+       }
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         if (!this.state.email || !this.state.password) {
@@ -70,8 +78,8 @@ export default class Login extends Component {
                 <form className="loginForm" method="post" action="">
                     <p>Please Login</p>
                     <input ref={(input) => {this.firstInput = input; }} type="email" name="email" placeholder="Enter email" value={this.state.email} onChange={this.handleChange}/>
-                    <input type="password" name="password" placeholder="Enter password" value={this.state.password} onChange={this.handleChange}/>
-                    <button onClick={this.handleSubmit} type="submit">Login</button>
+                    <input type="password" name="password" placeholder="Enter password" value={this.state.password} onChange={this.handleChange} onKeyPress={this.activateButton}/>
+                    <button ref={(button) => {this.button = button; }} onClick={this.handleSubmit} type="submit">Login</button>
                     <p>Not registered yet. Please...</p><Link className="link" to="/">Register</Link>
                     <p className="error">{this.state.Emessage}</p>
                 </form>

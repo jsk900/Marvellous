@@ -12,7 +12,7 @@ export default function Title(props) {
     return (
         <div className="mainHeader">
             <h3>Marvel Characters</h3>
-            <Counts name={props.name} characterCount={props.characterCount} />
+            <Counts name={props.name} characterCount={props.characterCount} memberCount={props.memberCount}/>
             <ul>
                 <li><CharactersLink changeSearchState={props.changeSearchState}/></li>
                 <li><Logout /></li>

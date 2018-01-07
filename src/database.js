@@ -39,3 +39,13 @@ exports.getName = function(userid) {
         console.log(err);
     });
 }
+
+// Get member count and send back
+exports.getMemberCount = function() {
+    return database.query(`SELECT id,count(*) FROM users GROUP BY id;`)
+        .then((results) => {
+            return results.rows;
+    }).catch((err) => {
+        console.log(err);
+    });
+}

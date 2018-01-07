@@ -17,6 +17,7 @@ export default class Main extends Component {
         }
         return (
             <div>
+                {!this.props.characters.length && <p id="noCharsMsg">Sorry,  No characters found!!</p>}
                 <div className="characterListContainer"><CharacterList
                     characters={this.props.characters}
                     selectCharacter={this.props.selectCharacter}

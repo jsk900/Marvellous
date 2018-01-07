@@ -13,9 +13,7 @@ const CharacterList = (props) => {
         )
     });
     return (
-        <ul>
-            {CharacterItems}
-        </ul>
+        <ul>{CharacterItems}</ul>
     );
 };
 

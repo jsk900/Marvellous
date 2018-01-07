@@ -1,20 +1,25 @@
 import React             from "react";
 import ComicsListItem from "./comicsListItem";
 
-const ComicsList = ({comics, selectComic}) => {
+const ComicsList = ({comics, selectComic, characterName}) => {
+    console.log("list", characterName);
     const ComicItems = comics.map(comic => {
-        console.log("list", selectComic);
         return (
             <ComicsListItem
             selectComic = {selectComic}
                 key={comic.id}
-                comic={comic} />
+                comic={comic}
+                characterName={characterName}/>
         )
     });
     return (
-        <ul>
-            {ComicItems}
-        </ul>
+        <div>
+            <p id="comicsCharacterTitle">Comics for {'\u00A0'}<span>{characterName}</span></p>
+            <ul>
+
+                {ComicItems}
+            </ul>
+        </div>
     );
 };
 

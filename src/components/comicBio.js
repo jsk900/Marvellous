@@ -1,7 +1,7 @@
 import React from "react";
 
 const ComicBio = ({selectedComic}) => {
-    console.log("bio", selectedComic);
+    
     if (!selectedComic) {
         return <div>Loading...</div>
     }

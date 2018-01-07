@@ -12,6 +12,7 @@ export default class Counts extends Component {
             <div id="counts">
                 <p id="name">Hi....<span>({'\u00A0'}{this.props.name}{'\u00A0'})</span></p>
                 <p>Characters total....<span>({'\u00A0'}{this.props.characterCount}{'\u00A0'})</span></p>
+                <p>Members total....<span>({'\u00A0'}{this.props.memberCount}{'\u00A0'})</span></p>
             </div>
         )
     }

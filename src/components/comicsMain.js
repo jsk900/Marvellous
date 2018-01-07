@@ -13,6 +13,7 @@ export default class ComicsMain extends Component {
     }
 
     render() {
+        console.log("comicsmain", this.props);
         if (!this.props.comics) {
             return (
                 <p>Loading....</p>
@@ -22,6 +23,7 @@ export default class ComicsMain extends Component {
             <div>
                 <div className="characterListContainer"><ComicsList
                     characters={this.props.characters}
+                    characterName={this.props.selectedCharacter.name}
                     selectComic={this.props.selectComic}
                     getComics={this.props.getComics}
                     comics={this.props.comics} />

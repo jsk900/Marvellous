@@ -243,16 +243,27 @@ body {
     border: 1px solid #09085b;
 }
 
-#counts {
-    position: absolute;
-    margin: -3px 0 0 550px;
+@media screen and (max-width:1366px) {
+
+    #counts {
+        position: absolute;
+        width: 400px;
+        margin: -3px 0 0 35%;
+    }
+
+    #counts #name span {
+        font-size: 14px;
+        background: -webkit-linear-gradient(#da2137, #ffff99);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 }
 
-#counts #name span {
-    font-size: 14px;
-    background: -webkit-linear-gradient(#da2137, #ffff99);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+@media screen and (max-width:1070px) {
+
+    #counts {
+        display: none;
+    }
 }
 
 .mainHeader #counts p {
@@ -271,8 +282,6 @@ body {
 .mainHeader ul {
     position: relative;
     margin: -4px 0 0 40px;
-    font-size: 12px;
-    color:  #ffff99;
     float: right;
 }
 
@@ -284,6 +293,8 @@ body {
     font-size: 12px;
     color:  #ffff99;
 }
+
+
 
 .mainHeader .mainLink {
     margin-top: 5px;
@@ -306,6 +317,11 @@ body {
     color: #ecea0b;
 }
 
+@media screen and (max-width:400px) {
+    .mainLink a {
+        display: none;
+    }
+}
 /* Main header end ................................. */
 
 /* Main characters list page also doubles as comics page css ................ */
@@ -355,6 +371,12 @@ body {
     text-align: center;
     background-color: #09085b;
     border-radius: 4px;
+}
+
+#noCharsMsg {
+    font-size: 25px;
+    color:  #ffff99;
+    padding: 20px 0 0 490px;
 }
 /* End characters list ............................. */
 
@@ -421,6 +443,19 @@ body {
     color: #ecea0b;
 }
 /* ................................................. */
+
+/* Comics character title .......................... */
+#comicsCharacterTitle {
+    color:  #ffff99;
+    font-size: 14px;
+    text-decoration: underline;
+    margin: 0 0 10px 16px;
+
+}
+
+#comicsCharacterTitle span {
+    color:  #99fdfd;
+}
 
 /* Main page end ..................................................................................... */
 

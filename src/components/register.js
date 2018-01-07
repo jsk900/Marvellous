@@ -12,9 +12,10 @@ export default class Register extends Component {
         this.state = {}
 
         // We need to bind our functions to "this"
-        this.clearInput=this.clearInput.bind(this)
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.clearInput     = this.clearInput.bind(this)
+        this.handleChange   = this.handleChange.bind(this);
+        this.activateButton = this.activateButton.bind(this);
+        this.handleSubmit   = this.handleSubmit.bind(this);
     }
 
     // Focus on first field before the render
@@ -39,12 +40,19 @@ export default class Register extends Component {
         });
     }
 
+    activateButton(event) {
+       if(event.which == 13) {
+           this.button.click();
+       }
+    }
+
     // Ok submit button clicked on our register form. Check for input and valid email.
     // If all is ok hash the password and send all entered data as an Axios request to the server-
     // index.js. This will action a query on the db to insert the data. We get a response back as
     // success or not.
     handleSubmit(e) {
         e.preventDefault();
+
         if (!this.state.name || !this.state.email || !this.state.password) {
             this.setState({"Emessage": "Please fill in all fields"});
             this.clearInput()
@@ -54,17 +62,29 @@ export default class Register extends Component {
                 this.clearInput()
                 this.firstInput.focus()
         } else {
-            this.setState({"Emessage": null});
-            const {name, email, password} = this.state;
-            HashPassword(this.state.password).then((password) => {
-                axios.post("/register", {
-                    name,
-                    email,
-                    password
+            const email = this.state.email;
+            axios.post("/checkEmail", {
+                email
                 }).then((resp) => {
-                    resp.data.success ? location.replace("/") : this.setState({"Emessage": "There was an error with the DB"});
-                });
-            });
+                    if(resp.data.success == true) {
+                        this.setState({"Emessage": "This email already exists"});
+                        this.clearInput()
+                        this.firstInput.focus()
+                    } else {
+                        this.setState({"Emessage": null});
+                        const {name, email, password} = this.state;
+                        HashPassword(this.state.password).then((password) => {
+                            axios.post("/register", {
+                                name,
+                                email,
+                                password
+                            }).then((resp) => {
+                                resp.data.success ? location.replace("/") : this.setState({"Emessage": "There was an error with the DB"});
+                            });
+                        });
+                }
+            })
+
         }
     }
 
@@ -78,8 +98,9 @@ export default class Register extends Component {
                     <p>Please Register</p>
                     <input ref={(input) => {this.firstInput = input; }} type="text" name="name" placeholder="Enter your name" value={this.state.name} onChange={this.handleChange}/>
                     <input type="email" name="email" placeholder="Enter email" value={this.state.email} onChange={this.handleChange}/>
-                    <input type="password" name="password" placeholder="Enter password" value={this.state.password} onChange={this.handleChange}/>
-                    <button onClick={this.handleSubmit} type="button">Register</button>
+                    <input type="password" name="password" placeholder="Enter password" value={this.state.password} onChange={this.handleChange} onKeyPress={this.activateButton}/>
+
+                    <button ref={(button) => {this.button = button; }} onClick={this.handleSubmit} type="button">Register</button>
                     <p>Already registered please...</p><Link className="link" to="/login">Login</Link>
                     <p className="error">{this.state.Emessage}</p>
                 </form>
