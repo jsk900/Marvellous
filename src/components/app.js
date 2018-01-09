@@ -12,6 +12,7 @@ import CharacterList      from "./characterList";
 const noImage = "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available"
 
 
+
 // Setup our Master App component. Set all our state data and declare all our functions
 export default class App extends Component {
     constructor(props) {
