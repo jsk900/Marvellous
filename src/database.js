@@ -1,6 +1,6 @@
 // Setup
 const spicedPg     = require("spiced-pg");
-const secrets      = require("../secrets.json");
+// const secrets      = require("../secrets.json");
 
 let database;
 
