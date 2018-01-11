@@ -1,16 +1,16 @@
 // Setup
 const spicedPg     = require("spiced-pg");
-// const secrets      = require("../secrets.json");
+const secrets      = require("../secrets.json");
 
 let database;
 
 // Determiines whether we are on a local or hosting server
 if (process.env.DATABASE_URL) {
     database = spicedPg(process.env.DATABASE_URL)
+
+} else {
+    database = spicedPg(`postgres:${secrets.user}:${secrets.password}@localhost:5432/marvel`)
 }
-// } else {
-//     database = spicedPg(`postgres:${secrets.user}:${secrets.password}@localhost:5432/marvel`)
-// }
 
 // DB query function to insert new user data
 exports.insertUser = function(name, email, password) {
@@ -44,6 +44,24 @@ exports.getName = function(userid) {
 // Get member count and send back
 exports.getMemberCount = function() {
     return database.query(`SELECT id,count(*) FROM users GROUP BY id;`)
+        .then((results) => {
+            return results.rows;
+    }).catch((err) => {
+        console.log(err);
+    });
+}
+
+// DB query function to insert new user data
+exports.insertFavourites = function(userid,  characterId, characterPic, characterName) {
+    return database.query(`INSERT INTO favourites (userid, characterId, characterPic, characterName) VALUES ($1, $2, $3, $4) RETURNING id`,
+    [userid, characterId, characterPic, characterName]).then((results) => {
+        return results.rows[0];
+    })
+}
+
+// Get favourite records by userid
+exports.getFavourites = function(userid) {
+    return database.query(`SELECT * FROM favourites WHERE userid = $1`,[userid])
         .then((results) => {
             return results.rows;
     }).catch((err) => {

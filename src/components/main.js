@@ -20,6 +20,7 @@ export default class Main extends Component {
                 {!this.props.characters.length && <p id="noCharsMsg">Sorry,  No characters found!!</p>}
                 <div className="characterListContainer"><CharacterList
                     characters={this.props.characters}
+                    favourites={this.props.favourites}
                     selectCharacter={this.props.selectCharacter}
                     getComics={this.props.getComics}
                     comics={this.props.comics} />

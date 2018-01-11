@@ -108,6 +108,27 @@ app.post("/checkEmail", (request, response) => {
     });
 });
 
+// Insert selected favourite into db
+app.post("/favourites", (request, response) => {
+    database.insertFavourites(request.session.user.userid, request.body.characterId, request.body.characterPic, request.body.characterName)
+    .then((results) => {
+        response.json({'success': true});
+        }).catch((err) => {
+        console.log(err);
+        response.json({'success': false});
+    });
+});
+
+// get favourites by userid
+app.post("/getFavourites", (request, response) => {
+    database.getFavourites(request.session.user.userid).then((results) => {
+        response.json({'success': true, results: results});
+        }).catch((err) => {
+        console.log(err);
+        response.json({'success': false});
+    });
+});
+
 // Catch all with checks to see if there is a user session and redirects accordingly...............
 app.get('*', (request, response) => {
     if (!request.session.user && request.url != "/welcome") {

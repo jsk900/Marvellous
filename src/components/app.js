@@ -19,6 +19,7 @@ export default class App extends Component {
         super(props);
         this.state = {
             characters: [],
+            favourites: [],
             comics: [],
             videos: [],
             credit: null,
@@ -30,12 +31,14 @@ export default class App extends Component {
             comicCount: 0,
             charSearch: "A",
             name: null,
-            disableSearch: false
+            disableSearch: false,
+            success: false
         };
 
         this.getName                    = this.getName.bind(this)
         this.getMemberCount             = this.getMemberCount.bind(this)
         this.characterList              = this.characterList.bind(this)
+        this.getFavourites              = this.getFavourites.bind(this)
         this.removeNoImage              = this.removeNoImage.bind(this)
         this.removeNoImage2             = this.removeNoImage2.bind(this)
         this.handleSubmit               = this.handleSubmit.bind(this)
@@ -53,6 +56,7 @@ export default class App extends Component {
         .then(() => {this.removeNoImage()})
         .then(() => {this.getName()})
         .then(() => {this.getMemberCount()})
+        .then(() => {this.getFavourites()})
     }
 
     // As the searchBar is part of the header we need to hide it unless it's on the main
@@ -116,6 +120,16 @@ export default class App extends Component {
         this.setState({comics: newcomics, comicCount: newcomics.length})
     }
 
+    // Get favourites for the logged in user
+    getFavourites() {
+        return axios.post("/getFavourites", {
+            }).then((resp) => {
+                if(resp.data.success) {
+                    this.setState({favourites: resp.data})
+                }
+            })
+    }
+
     // Submit handler for the searchBar.
     handleSubmit(value) {
         this.setState({charSearch: value},() => {
@@ -154,6 +168,7 @@ export default class App extends Component {
     render() {
         const children = React.cloneElement(this.props.children,
         { characters:this.state.characters,
+          favourites:this.state.favourites, 
           selectedCharacter:this.state.selectedCharacter,
           selectCharacter:this.selectCharacter,
           selectedComic:this.state.selectedComic,

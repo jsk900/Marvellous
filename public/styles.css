@@ -21,8 +21,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    /* background-image: url(./marvel.gif); */
-    background-image: url(./marvel_characters.png);
+    background-image: url(./marvel.gif);
+    /* background-image: url(./marvel_characters.png); */
     background-repeat: none;
     background-position: center;
     background-size: cover;
@@ -346,7 +346,7 @@ body {
 
 .characterContainer {
     position: relative;
-    height: 140px;
+    height: 150px;
     width: 160px;
     text-align: center;
     vertical-align: center;
@@ -378,6 +378,17 @@ body {
     font-size: 25px;
     color:  #ffff99;
     padding: 20px 0 0 490px;
+}
+
+.heartContainer #heartParagraph {
+    font-size: 8px;
+    color: #99fdfd;
+    padding: 5px 39px 0 0 ;
+    float: right;
+}
+
+#heart:hover {
+    cursor: pointer;
 }
 /* End characters list ............................. */
 

@@ -7,28 +7,27 @@ export default class Heart extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-
     handleSubmit(e) {
         const {characterId, characterPic, characterName} = this.props;
-        
         axios.post("/favourites", {
             characterId,
             characterPic,
             characterName
         }).then((resp) => {
                 if(resp.data.success) {
-                    this.setState({name: resp.data.name})
+                    this.setState({success: true})
                 }
             });
     }
 
     render() {
+        const favouritesHeart = this.props.favouritesHeart;
         return (
             <div className="heartContainer">
-                {this.props.favouritesHeart && <input id="heart" type="image" src="./public/heart.png" name="unfav" onClick={this.handleSubmit} />}
-                {!this.props.favouritesHeart && <input id="heart" type="image" src="./public/heart2.png" name="unfav" onClick={this.handleSubmit} />}
-                {this.props.favouritesHeart && <p id="heaartParagraph">Remove from Favourites</p>}
-                {!this.props.favouritesHeart && <p id="heaartParagraph">Add to Favourites</p>}
+                {favouritesHeart && <input id="heart" type="image" src="./public/heart.png" name="unfav"  onClick={this.handleSubmit}/>}
+                {!favouritesHeart && <input id="heart" type="image" src="./public/heart2.png" name="unfav" onClick={this.handleSubmit} />}
+                {!favouritesHeart && <p id="heartParagraph">Add to Favourites</p>}
+                {favouritesHeart && <p id="heartParagraph">Remove from Favourites</p>}
            </div>
 
         )

@@ -7,7 +7,7 @@ const CharacterList = (props) => {
             <CharacterListItem
                 selectCharacter = {props.selectCharacter}
                 getComics = {props.getComics}
-
+                favourites= {props.favourites}
                 key={character.id}
                 character={character} />
         )
