@@ -21,7 +21,6 @@ export default class App extends Component {
             characters: [],
             favourites: [],
             comics: [],
-            videos: [],
             credit: null,
             selectedCharacter: null,
             selectedComic: null,
@@ -39,6 +38,7 @@ export default class App extends Component {
         this.getMemberCount             = this.getMemberCount.bind(this)
         this.characterList              = this.characterList.bind(this)
         this.getFavourites              = this.getFavourites.bind(this)
+        this.heartChange                = this.heartChange.bind(this)
         this.removeNoImage              = this.removeNoImage.bind(this)
         this.removeNoImage2             = this.removeNoImage2.bind(this)
         this.handleSubmit               = this.handleSubmit.bind(this)
@@ -130,6 +130,10 @@ export default class App extends Component {
             })
     }
 
+    heartChange() {
+        location.reload();
+    }
+
     // Submit handler for the searchBar.
     handleSubmit(value) {
         this.setState({charSearch: value},() => {
@@ -167,17 +171,18 @@ export default class App extends Component {
     // Here we render all the children and send all the functions and data to them
     render() {
         const children = React.cloneElement(this.props.children,
-        { characters:this.state.characters,
-          favourites:this.state.favourites, 
-          selectedCharacter:this.state.selectedCharacter,
-          selectCharacter:this.selectCharacter,
-          selectedComic:this.state.selectedComic,
-          selectComic:this.selectComic,
-          getComics:this.getComics,
-          comics:this.state.comics,
-          comicCount:this.state.comicCount,
+        { characters: this.state.characters,
+          favourites: this.state.favourites,
+          selectedCharacter: this.state.selectedCharacter,
+          selectCharacter: this.selectCharacter,
+          selectedComic: this.state.selectedComic,
+          selectComic: this.selectComic,
+          getComics: this.getComics,
+          comics: this.state.comics,
+          comicCount: this.state.comicCount,
           disableSearch: this.state.disableSearch,
-          changeSearchState: this.changeSearchState
+          changeSearchState: this.changeSearchState,
+          heartChange: this.heartChange
       })
 
         // Here we actually display what we want on this main App.
@@ -194,6 +199,7 @@ export default class App extends Component {
                 handleSubmit={this.handleSubmit}
                 disableSearch={this.state.disableSearch}
                 changeSearchState={this.changeSearchState}
+                heartChange={this.heartChange}
                 /></div>
                 {children}
                 <div className="footer"><Footer /></div>
@@ -201,4 +207,3 @@ export default class App extends Component {
         )
     }
 }
-// videos={this.state.videos}

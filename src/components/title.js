@@ -2,6 +2,7 @@
 import React                from "react";
 import Counts               from "./counts";
 import CharactersLink       from "./charactersLink";
+import FavouritesLink       from "./favouritesLink";
 import Logout               from "./logout";
 import Credits              from "./credits";
 
@@ -15,6 +16,7 @@ export default function Title(props) {
             <Counts name={props.name} characterCount={props.characterCount} memberCount={props.memberCount}/>
             <ul>
                 <li><CharactersLink changeSearchState={props.changeSearchState}/></li>
+                <li><FavouritesLink /></li>
                 <li><Logout /></li>
                 <li className="mainLink"><Credits  credit={props.credit} /></li>
             </ul>

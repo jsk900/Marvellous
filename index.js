@@ -129,6 +129,27 @@ app.post("/getFavourites", (request, response) => {
     });
 });
 
+// check favourites by userid and characterId
+app.post("/checkFavourites", (request, response) => {
+    database.checkFavourites(request.session.user.userid, request.body.characterId).then((results) => {
+        if (results.length > 0) {
+            response.json({'success': true});
+        } else {
+            response.json({'success': false});
+        }
+    });
+});
+
+// Delete favourites by userid and characterId
+app.post("/deleteFavourites", (request, response) => {
+    database.deleteFavourites(request.session.user.userid, request.body.characterId).then((results) => {
+        response.json({'success': true});
+        }).catch((err) => {
+        console.log(err);
+        response.json({'success': false});
+    });
+});
+
 // Catch all with checks to see if there is a user session and redirects accordingly...............
 app.get('*', (request, response) => {
     if (!request.session.user && request.url != "/welcome") {

@@ -80,7 +80,7 @@ export default class Login extends Component {
                     <input ref={(input) => {this.firstInput = input; }} type="email" name="email" placeholder="Enter email" value={this.state.email} onChange={this.handleChange}/>
                     <input type="password" name="password" placeholder="Enter password" value={this.state.password} onChange={this.handleChange} onKeyPress={this.activateButton}/>
                     <button ref={(button) => {this.button = button; }} onClick={this.handleSubmit} type="submit">Login</button>
-                    <p>Not registered yet. Please...</p><Link className="link" to="/">Register</Link>
+                    <p>Not registered yet. Please...</p><Link className="link" to="/register">Register</Link>
                     <p className="error">{this.state.Emessage}</p>
                 </form>
             </div>

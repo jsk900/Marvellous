@@ -17,8 +17,8 @@ let router;
 const notLoggedInRouter = (
     <Router history={hashHistory}>
         <Route path="/" component={Welcome}>
-            <Route path="/login" component={Login} />
-            <IndexRoute component={Register} />
+            <Route path="/register" component={Register} />
+            <IndexRoute component={Login} />
   	    </Route>
     </Router>
 );

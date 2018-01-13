@@ -23,7 +23,8 @@ export default class Main extends Component {
                     favourites={this.props.favourites}
                     selectCharacter={this.props.selectCharacter}
                     getComics={this.props.getComics}
-                    comics={this.props.comics} />
+                    comics={this.props.comics}
+                    heartChange={this.props.heartChange} />
                 </div>
             </div>
         )

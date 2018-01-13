@@ -12,7 +12,7 @@ CREATE TABLE users (
 CREATE TABLE favourites (
     id    SERIAL primary key,
     userid INTEGER not null,
-    characterId INTEGER not null UNIQUE,
+    characterId INTEGER not null,
     characterName VARCHAR(255) not null,
     characterPic VARCHAR(255) not null,
     createdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP

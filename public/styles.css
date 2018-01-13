@@ -380,15 +380,25 @@ body {
     padding: 20px 0 0 490px;
 }
 
+.heartContainer #heart {
+    padding: 5px 25px 0 0;
+    float: right;
+}
+
 .heartContainer #heartParagraph {
     font-size: 8px;
     color: #99fdfd;
-    padding: 5px 39px 0 0 ;
+    padding: 5px 5px 0 0;
     float: right;
 }
 
 #heart:hover {
     cursor: pointer;
+     -webkit-filter: brightness(160%);
+}
+
+#heart:focus {
+    outline: none;
 }
 /* End characters list ............................. */
 

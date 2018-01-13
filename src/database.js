@@ -7,12 +7,12 @@ let database;
 // Determiines whether we are on a local or hosting server
 if (process.env.DATABASE_URL) {
     database = spicedPg(process.env.DATABASE_URL)
-
 }
 
 // else {
 //     database = spicedPg(`postgres:${secrets.user}:${secrets.password}@localhost:5432/marvel`)
 // }
+
 
 // DB query function to insert new user data
 exports.insertUser = function(name, email, password) {
@@ -64,6 +64,26 @@ exports.insertFavourites = function(userid,  characterId, characterPic, characte
 // Get favourite records by userid
 exports.getFavourites = function(userid) {
     return database.query(`SELECT * FROM favourites WHERE userid = $1`,[userid])
+        .then((results) => {
+            return results.rows;
+    }).catch((err) => {
+        console.log(err);
+    });
+}
+
+// Check record exists by userid and characterId
+exports.checkFavourites = function(userid, characterId) {
+    return database.query(`SELECT userid,count(*) FROM favourites WHERE userid = $1 AND characterId = $2 GROUP BY userid `,[userid, characterId])
+        .then((results) => {
+            return results.rows;
+    }).catch((err) => {
+        console.log(err);
+    });
+}
+
+// Delete record by userid and characterId
+exports.deleteFavourites = function(userid, characterId) {
+    return database.query(`DELETE FROM favourites WHERE userid = $1 AND characterId = $2`,[userid, characterId])
         .then((results) => {
             return results.rows;
     }).catch((err) => {

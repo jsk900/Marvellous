@@ -2,7 +2,7 @@ import React    from "react";
 import { Link } from "react-router";
 import Heart    from "./heart";
 
-const CharacterListItem = ({character, selectCharacter, getComics, favourites}) => {
+const CharacterListItem = ({character, selectCharacter, getComics, favourites, heartChange}) => {
     let image           = character.thumbnail.path;
     let extension       = character.thumbnail.extension;
     let characterPic    = image + "/landscape_small" + "." + extension;
@@ -31,6 +31,7 @@ const CharacterListItem = ({character, selectCharacter, getComics, favourites}) 
                   characterId={characterId}
                   characterPic={characterPic}
                   characterName={character.name}
+                  heartChange={heartChange}
                 />
             </li>
     )

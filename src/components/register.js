@@ -101,11 +101,9 @@ export default class Register extends Component {
                     <input type="password" name="password" placeholder="Enter password" value={this.state.password} onChange={this.handleChange} onKeyPress={this.activateButton}/>
 
                     <button ref={(button) => {this.button = button; }} onClick={this.handleSubmit} type="button">Register</button>
-                    <p>Already registered please...</p><Link className="link" to="/login">Login</Link>
+                    <p>Already registered please...</p><Link className="link" to="/">Login</Link>
                     <p className="error">{this.state.Emessage}</p>
                 </form>
-
-
             </div>
         )
     }
