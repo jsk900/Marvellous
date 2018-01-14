@@ -5,10 +5,12 @@ const spicedPg     = require("spiced-pg");
 let database;
 
 // Determiines whether we are on a local or hosting server
-if (process.env.DATABASE_URL) {
-    database = spicedPg(process.env.DATABASE_URL)
-}
+// if (process.env.DATABASE_URL) {
+//     database = spicedPg(process.env.DATABASE_URL)
+// }
 
+const dbUrl = process.env.DATABASE_URL || `postgres:${require("../secrets.json").user}:${require("../secrets.json").password}@localhost:5432/marvel`
+database = spicedPg(dbUrl)
 // else {
 //     database = spicedPg(`postgres:${secrets.user}:${secrets.password}@localhost:5432/marvel`)
 // }
