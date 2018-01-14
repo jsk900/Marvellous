@@ -130,8 +130,30 @@ export default class App extends Component {
             })
     }
 
-    heartChange() {
-        location.reload();
+    heartChange(characterId, characterPic, characterName) {
+        axios.post("/checkFavourites",{
+            characterId
+        }).then((resp) => {
+            if(!resp.data.success) {
+                axios.post("/favourites", {
+                    characterId,
+                    characterPic,
+                    characterName
+                }).then((resp) => {
+                    if(resp.data.success) {
+                        this.setState({success: true})
+                    }
+                }).then(() => {this.getFavourites()})
+            } else {
+                axios.post("/deleteFavourites", {
+                    characterId,
+                }).then((resp) => {
+                    if(resp.data.success) {
+                        this.setState({success: true})
+                    }
+                }).then(() => {this.getFavourites()})
+            }
+        })
     }
 
     // Submit handler for the searchBar.

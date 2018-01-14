@@ -1,20 +1,9 @@
 // Setup
 const spicedPg     = require("spiced-pg");
-// const secrets      = require("../secrets.json");
-
-let database;
 
 // Determiines whether we are on a local or hosting server
-// if (process.env.DATABASE_URL) {
-//     database = spicedPg(process.env.DATABASE_URL)
-// }
-
 const dbUrl = process.env.DATABASE_URL || `postgres:${require("../secrets.json").user}:${require("../secrets.json").password}@localhost:5432/marvel`
-database = spicedPg(dbUrl)
-// else {
-//     database = spicedPg(`postgres:${secrets.user}:${secrets.password}@localhost:5432/marvel`)
-// }
-
+let database = spicedPg(dbUrl)
 
 // DB query function to insert new user data
 exports.insertUser = function(name, email, password) {
