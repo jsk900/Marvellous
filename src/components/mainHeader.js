@@ -16,10 +16,12 @@ export default class MainHeader extends Component {
             <div>
                 <Title
                 name={this.props.name}
+                disableSearch={this.props.disableSearch}
                 changeSearchState={this.props.changeSearchState}
                 credit={this.props.credit}
                 characterCount={this.props.characterCount}
-                memberCount={this.props.memberCount} />
+                memberCount={this.props.memberCount}
+                favourites={this.props.favourites}/>
                 {!this.props.disableSearch && <CharacterSearch id="search" handleSubmit={this.props.handleSubmit} />}
                 {this.props.disableSearch && <div />}
             </div>

@@ -62,7 +62,11 @@ export default class App extends Component {
     // As the searchBar is part of the header we need to hide it unless it's on the main
     // character list page
     changeSearchState() {
-        this.setState({disableSearch: false})
+        if (this.state.disableSearch == false) {
+            this.setState({disableSearch: true})
+        } else {
+            this.setState({disableSearch: false})
+        }
     }
 
     // Get the users name from the server/database
@@ -222,6 +226,7 @@ export default class App extends Component {
                 disableSearch={this.state.disableSearch}
                 changeSearchState={this.changeSearchState}
                 heartChange={this.heartChange}
+                favourites={this.state.favourites}
                 /></div>
                 {children}
                 <div className="footer"><Footer /></div>

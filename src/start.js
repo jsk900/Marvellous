@@ -9,6 +9,7 @@ import Main                                                                 from
 import CharacterBio                                                         from "./components/characterBio";
 import ComicBio                                                             from "./components/comicBio";
 import ComicsMain                                                           from "./components/comicsMain";
+import FavouritesMain                                                       from "./components/favouritesMain";
 import { Router, Route, IndexRoute, hashHistory, browserHistory, Redirect}  from "react-router";
 
 let router;
@@ -31,6 +32,9 @@ const loggedInRouter = (
 
         <Route path="comicBio" component={ComicBio} />
         <Route path="comics" component={ComicsMain} />
+
+        <Route path="favourites" component={FavouritesMain} />
+
             <IndexRoute component={Main} />
             <Redirect from = "*" to = "/" />
         </Route>

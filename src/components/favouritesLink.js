@@ -2,9 +2,8 @@
 import React    from "react";
 import { Link } from "react-router";
 
-// Our logo component
-export default function FavouritesLink() {
+export default function FavouritesLink(props) {
     return (
-        <Link className="mainLink" to="/favourites">Favourites</Link>
-    );
+        <Link onClick={props.changeSearchState} favourites={props.favourites} className="mainLink" to="/favourites">Favourites</Link>
+    )
 }
