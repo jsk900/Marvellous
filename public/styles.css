@@ -375,6 +375,11 @@ body {
     border-radius: 4px;
 }
 
+#favouriteImage {
+    padding-top: 10px;
+    text-align: center;
+}
+
 #noCharsMsg {
     font-size: 25px;
     color:  #ffff99;

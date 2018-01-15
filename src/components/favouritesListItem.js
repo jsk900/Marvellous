@@ -11,7 +11,7 @@ const FavouriteListItem = ({favourite, selectCharacter, getComics, heartChange})
     return (
             <li className="characterContainer">
                 <p id="characterName">{characterName}</p>
-                <img id="characterImage" src={characterPic} />
+                <img id="favouriteImage" src={characterPic} />
 
                 <Heart
                   favouritesHeart={favouritesHeart}
