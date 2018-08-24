@@ -18,8 +18,7 @@ const CharacterListItem = ({character, selectCharacter, getComics, favourites, h
             }
         }
     }
-
-
+    
     return (
             <li className="characterContainer">
                 <Link to = "/characterBio">

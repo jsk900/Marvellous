@@ -42,7 +42,7 @@ const loggedInRouter = (
 
 );
 
-// The server checks whether there is a session of not. If not it redirects to the welcome path.
+// The server checks whether there is a session or not. If not it redirects to the welcome path.
 // Here we check what path we're on and determines what app and component to show
 if (location.pathname == "/welcome") {
     router = notLoggedInRouter

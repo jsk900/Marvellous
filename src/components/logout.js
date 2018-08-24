@@ -2,8 +2,12 @@
 import React from "react";
 
 // Our logout component
-export default function Logout() {
+const Logout = () => {
     return (
-        <a className="mainLink" href="/logout">Logout</a>
+        <a className="mainLink" href="/logout">
+            Logout
+        </a>
     );
-}
+};
+
+export default Logout;

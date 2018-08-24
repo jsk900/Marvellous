@@ -2,10 +2,12 @@
 import React from "react";
 
 // Our Marvel link component
-export default function Credits({credit}) {
-    function createMarkup() { return {__html: credit}; };
+const Credits = ({ credit }) => {
+    function createMarkup() {
+        return { __html: credit };
+    }
 
-    return (
-        <div dangerouslySetInnerHTML={createMarkup()} credit={credit} />
-    );
+    return <div dangerouslySetInnerHTML={createMarkup()} credit={credit} />;
 };
+
+export default Credits;

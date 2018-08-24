@@ -1,16 +1,16 @@
 // Setup
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 
-export default class CharacterSearch extends Component {
+class CharacterSearch extends PureComponent {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {};
         this.handleChange = this.handleChange.bind(this);
         this.activateButton = this.activateButton.bind(this);
     }
 
-    componentDidMount(){
-        this.firstInput.focus()
+    componentDidMount() {
+        this.firstInput.focus();
     }
 
     handleChange(e) {
@@ -20,19 +20,37 @@ export default class CharacterSearch extends Component {
     }
 
     activateButton(event) {
-       if(event.which == 13) {
-           this.button.click();
-       }
+        if (event.which == 13) {
+            this.button.click();
+        }
     }
 
     render() {
         return (
             <div className="mainSearch">
-                <input id="searchInput" ref={(input) => {this.firstInput = input; }} type="text" name="search" placeholder="Enter search" onChange={this.handleChange} onKeyPress={this.activateButton}/>
-                <button id="searchButton" ref={(button) => {this.button = button; }} onClick={() => this.props.handleSubmit(this.state.search)}>Search</button>
-
+                <input
+                    id="searchInput"
+                    ref={input => {
+                        this.firstInput = input;
+                    }}
+                    type="text"
+                    name="search"
+                    placeholder="Enter search"
+                    onChange={this.handleChange}
+                    onKeyPress={this.activateButton}
+                />
+                <button
+                    id="searchButton"
+                    ref={button => {
+                        this.button = button;
+                    }}
+                    onClick={() => this.props.handleSubmit(this.state.search)}
+                >
+                    Search
+                </button>
             </div>
-        )
+        );
     }
 }
-// <button id="searchButton" onKeyPress={() => this.props.handleEnter(this.state.search)}>Search</button>
+
+export default CharacterSearch;
