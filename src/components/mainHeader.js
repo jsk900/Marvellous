@@ -4,10 +4,7 @@ import Title from "./title";
 import CharacterSearch from "./characterSearch";
 
 class MainHeader extends PureComponent {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
+    state = {};
 
     // Header for our App master Component. Pass the data onto our Title Component.
     // Here we also only show the searchBar if we need to

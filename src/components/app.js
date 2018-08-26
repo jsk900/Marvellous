@@ -10,9 +10,7 @@ const noImage =
 
 // Setup our Master App component. Set all our state data and declare all our functions
 class App extends PureComponent {
-    constructor(props) {
-        super(props);
-        this.state = {
+        state = {
             characters: [],
             favourites: [],
             comics: [],
@@ -28,20 +26,6 @@ class App extends PureComponent {
             disableSearch: false,
             success: false
         };
-
-        this.getName = this.getName.bind(this);
-        this.getMemberCount = this.getMemberCount.bind(this);
-        this.characterList = this.characterList.bind(this);
-        this.getFavourites = this.getFavourites.bind(this);
-        this.heartChange = this.heartChange.bind(this);
-        this.removeNoImage = this.removeNoImage.bind(this);
-        this.removeNoImage2 = this.removeNoImage2.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.selectCharacter = this.selectCharacter.bind(this);
-        this.selectComic = this.selectComic.bind(this);
-        this.getComics = this.getComics.bind(this);
-        this.changeSearchState = this.changeSearchState.bind(this);
-    }
 
     // Here we fire off all the stuff we want rendered to the App before we see it
     // In this case we need to get all the characters from Marvel and remove all no images
@@ -64,7 +48,7 @@ class App extends PureComponent {
 
     // As the searchBar is part of the header we need to hide it unless it's on the main
     // character list page
-    changeSearchState() {
+    changeSearchState() => {
         if (this.state.disableSearch == false) {
             this.setState({ disableSearch: true });
         } else {
@@ -73,7 +57,7 @@ class App extends PureComponent {
     }
 
     // Get the users name from the server/database
-    getName() {
+    getName() => {
         return axios
             .post("/getName", {
                 name
@@ -86,7 +70,7 @@ class App extends PureComponent {
     }
 
     // Get the users count from the server/database
-    getMemberCount() {
+    getMemberCount() => {
         return axios
             .post("/getMemberCount", {
                 name
@@ -100,7 +84,7 @@ class App extends PureComponent {
 
     // Api call to marvel to get the initial list of character. Subsequent calls will use whatever was
     // entered into the searchBar.
-    characterList() {
+    characterList() => {
         var charSearch = this.state.charSearch;
         var url = `https://gateway.marvel.com/v1/public/characters?nameStartsWith=${charSearch}&limit=50&ts=1&apikey=24b734a9df515f87bbe1bac66f8dbd5c&hash=a4374486b969b3e7b91f44c63fe5a64d`;
         return $.ajax({
@@ -122,7 +106,7 @@ class App extends PureComponent {
     }
 
     // remove all the no image characters from data retrieved from the Marvel Api (characters)
-    removeNoImage() {
+    removeNoImage() => {
         var newcharacters = this.state.characters.filter(function(character) {
             return character.thumbnail.path !== noImage;
         });
@@ -133,7 +117,7 @@ class App extends PureComponent {
     }
 
     // remove all the no image characters from data retrieved from the Marvel Api (comics)
-    removeNoImage2() {
+    removeNoImage2() => {
         var newcomics = this.state.comics.filter(function(comic) {
             return comic.thumbnail.path !== noImage;
         });
@@ -141,7 +125,7 @@ class App extends PureComponent {
     }
 
     // Get favourites for the logged in user
-    getFavourites() {
+    getFavourites() => {
         return axios.post("/getFavourites", {}).then(resp => {
             if (resp.data.success) {
                 this.setState({ favourites: resp.data });
@@ -149,7 +133,7 @@ class App extends PureComponent {
         });
     }
 
-    heartChange(characterId, characterPic, characterName) {
+    heartChange(characterId, characterPic, characterName) => {
         axios
             .post("/checkFavourites", {
                 characterId
@@ -188,7 +172,7 @@ class App extends PureComponent {
     }
 
     // Submit handler for the searchBar.
-    handleSubmit(value) {
+    handleSubmit(value) => {
         this.setState({ charSearch: value }, () => {
             this.characterList().then(() => {
                 this.removeNoImage();
@@ -197,17 +181,17 @@ class App extends PureComponent {
     }
 
     // User has selected a character. Set state to selected character.
-    selectCharacter(value) {
+    selectCharacter(value) => {
         this.setState({ selectedCharacter: value, disableSearch: true });
     }
 
     // User has selected a comic. Set state to selected comic.
-    selectComic(value) {
+    selectComic(value) => {
         this.setState({ selectedComic: value });
     }
 
     // User has selected a character to view more info. Get comic info for selected character
-    getComics(value) {
+    getComics(value) => {
         var characterId = value.id;
         var url = `https://gateway.marvel.com/v1/public/characters/${characterId}/comics?ts=1&apikey=24b734a9df515f87bbe1bac66f8dbd5c&hash=a4374486b969b3e7b91f44c63fe5a64d`;
         return $.ajax({
