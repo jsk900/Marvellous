@@ -2,7 +2,10 @@ import React, { PureComponent } from "react";
 
 // Character counts
 class Counts extends PureComponent {
-    state = {};
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
 
     // {'\u00A0'} means &nbsp
     render() {

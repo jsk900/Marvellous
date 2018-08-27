@@ -27,14 +27,14 @@ app.use((request, response, next) => {
 });
 
 // Setup access to react ..........................................................................
-if (process.env.NODE_ENV != "production") {
-    app.use(
-        "/bundle.js",
-        require("http-proxy-middleware")({
-            target: "http://localhost:8081/"
-        })
-    );
-}
+// if (process.env.NODE_ENV != "production") {
+//     app.use(
+//         "/bundle.js",
+//         require("http-proxy-middleware")({
+//             target: "http://localhost:8081/"
+//         })
+//     );
+// }
 //.................................................................................................
 
 // Use all in public folder  and listen on port 8080 or heroku

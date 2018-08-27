@@ -5,41 +5,48 @@ import { Link } from "react-router";
 
 // Login form Component. Used on welcome master Component
 class Login extends PureComponent {
-        state = { name: null };
+    constructor(props) {
+        super(props);
+        this.state = {name: null}
+        this.clearInput=this.clearInput.bind(this)
+        this.handleChange = this.handleChange.bind(this);
+        this.activateButton = this.activateButton.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
     componentDidMount() {
         this.firstInput.focus();
     }
 
     // Clean input fields after errors
-    clearInput() => {
+    clearInput() {
         this.setState({
             email: "",
             password: ""
         });
-    }
+    };
 
-    handleChange(e) => {
+    handleChange(e) {
         this.setState({
             [e.target.name]: e.target.value
         });
-    }
+    };
 
-    activateButton(event) => {
+    activateButton(event) {
         if (event.which == 13) {
             this.button.click();
         }
-    }
+    };
 
-    handleSubmit(e) => {
+    handleSubmit(e) {
         e.preventDefault();
         if (!this.state.email || !this.state.password) {
             this.setState({ Emessage: "Please fill in all fields" });
-            this.clearInput();
+            this.clearInput;
             this.firstInput.focus();
         } else if (this.state.email.indexOf("@") == -1) {
             this.setState({ Emessage: "This email is not valid" });
-            this.clearInput();
+            this.clearInput;
             this.firstInput.focus();
         } else {
             this.setState({ Emessage: "" });
@@ -57,18 +64,18 @@ class Login extends PureComponent {
                         this.setState({
                             Emessage: "The entered e-mail is not registered!"
                         });
-                        this.clearInput();
+                        this.clearInput;
                         this.firstInput.focus();
                     } else {
                         this.setState({
                             Emessage: "Email or Password not correct"
                         });
-                        this.clearInput();
+                        this.clearInput;
                         this.firstInput.focus();
                     }
                 });
         }
-    }
+    };
     render() {
         return (
             <div className="main">

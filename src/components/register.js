@@ -6,7 +6,16 @@ import { Link } from "react-router";
 
 // Our register form component. Used on our Welcome Master app
 class Register extends PureComponent {
-        state = {};
+    constructor(props) {
+        super(props);
+        this.state = {};
+
+        // We need to bind our functions to "this"
+        this.clearInput = this.clearInput.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.activateButton = this.activateButton.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
     // Focus on first field before the render
     componentDidMount() {
@@ -14,7 +23,7 @@ class Register extends PureComponent {
     }
 
     // Clean input fields after errors
-    clearInput() => {
+    clearInput() {
         this.setState({
             name: "",
             last: "",
@@ -24,13 +33,13 @@ class Register extends PureComponent {
     }
 
     //Neat gizmo from Matt to place all form fields and their values as key pairs into state.
-    handleChange(e) => {
+    handleChange(e) {
         this.setState({
             [e.target.name]: e.target.value
         });
     }
 
-    activateButton(event) => {
+    activateButton(event) {
         if (event.which == 13) {
             this.button.click();
         }
@@ -40,7 +49,7 @@ class Register extends PureComponent {
     // If all is ok hash the password and send all entered data as an Axios request to the server-
     // index.js. This will action a query on the db to insert the data. We get a response back as
     // success or not.
-    handleSubmit(e) => {
+    handleSubmit(e) {
         e.preventDefault();
 
         if (!this.state.name || !this.state.email || !this.state.password) {

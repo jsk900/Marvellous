@@ -3,11 +3,9 @@ import React, { PureComponent } from "react";
 import Title from "./title";
 import CharacterSearch from "./characterSearch";
 
+// Header for our App master Component. Pass the data onto our Title Component.
+// Here we also only show the searchBar if we need to
 class MainHeader extends PureComponent {
-    state = {};
-
-    // Header for our App master Component. Pass the data onto our Title Component.
-    // Here we also only show the searchBar if we need to
     render() {
         return (
             <div>

@@ -3,7 +3,10 @@ import React, { PureComponent } from "react";
 import FavouritesList from "./favouritesList";
 
 class FavouritesMain extends PureComponent {
-    state = {};
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
 
     // Main Component to show characters list
     render() {

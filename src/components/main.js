@@ -2,10 +2,8 @@
 import React, { PureComponent } from "react";
 import CharacterList from "./characterList";
 
+// Main Component to show characters list
 class Main extends PureComponent {
-    state = {};
-
-    // Main Component to show characters list
     render() {
         if (!this.props.characters) {
             return <p>Loading....</p>;

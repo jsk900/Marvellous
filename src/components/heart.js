@@ -1,8 +1,12 @@
 import React, { PureComponent } from "react";
 
 class Heart extends PureComponent {
+    constructor(props) {
+        super(props);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
-    handleSubmit() => {
+    handleSubmit() {
         const { characterId, characterPic, characterName } = this.props;
         this.props.heartChange(characterId, characterPic, characterName);
     }

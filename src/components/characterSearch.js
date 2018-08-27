@@ -2,19 +2,24 @@
 import React, { PureComponent } from "react";
 
 class CharacterSearch extends PureComponent {
-        state = {};
+    constructor(props) {
+        super(props);
+        this.state = {};
+        this.handleChange = this.handleChange.bind(this);
+        this.activateButton = this.activateButton.bind(this);
+    }
 
     componentDidMount() {
         this.firstInput.focus();
     }
 
-    handleChange(e) => {
+    handleChange(e) {
         this.setState({
             [e.target.name]: e.target.value
         });
     }
 
-    activateButton(event) => {
+    activateButton(event) {
         if (event.which == 13) {
             this.button.click();
         }

@@ -6,7 +6,10 @@ import ComicsList from "./comicsList";
 // start.js handling our routes. I guess this is where we would also handle videos
 // and favourites
 class ComicsMain extends PureComponent {
-    state = {};
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
 
     render() {
         if (!this.props.comics) {
