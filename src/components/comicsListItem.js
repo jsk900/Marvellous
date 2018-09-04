@@ -4,7 +4,7 @@ import { Link } from "react-router";
 const ComicsListItem = ({ comic, selectComic }) => {
     let image = comic.thumbnail.path;
     let extension = comic.thumbnail.extension;
-    let comicPic = image + "/landscape_small" + "." + extension;
+    let comicPic = image + "/standard_medium" + "." + extension;
     let comicName = comic.title;
 
     return (
