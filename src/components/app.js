@@ -123,7 +123,6 @@ class App extends PureComponent {
 
     // remove all the no image characters from data retrieved from the Marvel Api (characters)
     removeNoImage() {
-        console.log(this.state.characters);
         var newcharacters = this.state.characters.filter(function(character) {
             return character.thumbnail.path !== noImage;
         });
