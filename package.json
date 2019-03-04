@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "node build.js",
-    "start": "npm run build && node index.js",
-    "postinstall": "npm run build"
+    "start": "npm run build && node index.js"
   },
   "engines": {
     "node": "6.10.3"
@@ -47,5 +46,6 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "heroku-run-build-script": true
 }
